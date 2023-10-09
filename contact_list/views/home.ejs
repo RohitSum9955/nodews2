@@ -13,6 +13,25 @@
     </title>
 </head>
 <body>
-    <h1>Rendered from ejs views</h1>
+    <!-- <h1>Rendered from ejs views</h1> -->
+    <h1>Contact List</h1>
+    <div>
+        <ul>
+            <% for(let i of contact_list){%>
+                <li>
+                    <p><%= i.name%></p>
+                    <p><%= i.phone%></p>
+                </li>
+
+            <%}%>
+        </ul>
+    </div>
+    <!-- create a form and call in index.js -->
+    <form action="/create-contact" method="POST">  
+        <!-- we will use 'required' because user should be sending in blank form  -->
+        <input type="text" name="name" placeholder="Enter Name" required>
+        <input type="number" name="phone" placeholder="Enter Phone" required>
+        <button type="submit">Add Contact</button>
+    </form>
 </body>
 </html>
