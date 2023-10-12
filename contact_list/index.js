@@ -12,6 +12,23 @@ app.set('view engine', 'ejs');
 //app.set('views', ) // these line comment so we comment on line  also and add a new line on console.log(dirname) 
 
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.urlencoded());
+app.use(express.static('assets'));
+//middleware1
+//app.use(function(req,res,next)){
+//    req.myName="Rohit";
+//    console.log('middleware 1 called');
+//    next();
+//
+//});
+
+//middleare 2
+//app.use(function(req,res,next){
+//    console.log('My Nmae for MW2', req.myName);
+//    console.log('middlewaare 2 called');
+//    next();
+//});
+
 var contactList = [
     {
         name: "Rohit",
