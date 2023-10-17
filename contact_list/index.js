@@ -67,7 +67,29 @@ app.get('/practice', function (req, res) {
 // if we write action type other and in this file name different so they do not post 
 app.post('/create-contact', function(req, res){
     //redirect means take me to that the url or browser or thake the redirect to the page
-    return res.redirect('/practice');
+   return res.redirect('/practice');
+    // return res.redirect('back');
+
+});
+
+
+//for deleting contact
+// for deleting we use get request  and pass phone number
+app.get('/delete-contact', function(req, res){
+    //this function first find the contact
+   // console.log(req.query);
+
+   //get the query from the url
+    let phone=req.query.phone;
+    let contactIndex =  contactList.findIndex(contact => contact.phone == phone);// if mataching return 1 otherwise return -1
+
+    if(contactIndex != -1){
+        contactList.splice(contactIndex, 1);
+    }
+
+    return res.redirect('back');
+
+    // 2nd thing is that  i want to find the index matching with contact number
 
 });
 
